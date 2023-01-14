@@ -33,10 +33,6 @@ app.all("*", (req, res, next) => {
       return;
     }
 
-    console.log(req.body);
-
-    res.status(200).json({ success: "OK" });
-
     request(
       {
         url: targetURL + url.parse(req.url, true).path,
