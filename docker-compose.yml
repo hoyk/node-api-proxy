@@ -1,8 +1,12 @@
 version: "3.8"
 services:
-  app:
-    build: .
+  api_proxy:
+    container_name: api_proxy
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    restart: always
     ports:
-      - "3200:3000"
+      - "5010:5000"
     environment:
       - NODE_ENV=production

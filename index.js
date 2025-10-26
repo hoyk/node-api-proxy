@@ -17,7 +17,7 @@ app.use(limiter);
 app.set("trust proxy", 1);
 
 // Add bodyParser (express.json())
-app.use(express.json({ limit: "200kb" }));
+app.use(express.json({ limit: "500kb" }));
 
 // Enable cors
 app.use(cors());
