@@ -17,7 +17,7 @@ const app = express();
 app.set("trust proxy", 1);
 
 // Add bodyParser (express.json())
-// app.use(express.json({ limit: "500kb" }));
+app.use(express.json());
 
 // Enable cors
 app.use(cors());
