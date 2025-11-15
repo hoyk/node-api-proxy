@@ -8,16 +8,16 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 // Rate Limiting
-const limiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 1min
-  max: 30,
-});
-app.use(limiter);
+// const limiter = rateLimit({
+//   windowMs: 1 * 60 * 1000, // 1min
+//   max: 30,
+// });
+// app.use(limiter);
 
 app.set("trust proxy", 1);
 
 // Add bodyParser (express.json())
-app.use(express.json({ limit: "500kb" }));
+// app.use(express.json({ limit: "500kb" }));
 
 // Enable cors
 app.use(cors());
@@ -29,7 +29,9 @@ app.all("*", (req, res, next) => {
   } else {
     let targetURL = req.header("Target-Endpoint");
     if (!targetURL) {
-      res.status(500).json({ error: "There is no Target-Endpoint header in the request" });
+      res
+        .status(500)
+        .json({ error: "There is no Target-Endpoint header in the request" });
       return;
     }
 
